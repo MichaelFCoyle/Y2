@@ -15,7 +15,11 @@
     <author href="http://yourLo.ca/tion" email="support@yourLo.ca">
         BlueToque Software
     </author>
-
+	
+	<!-- the default page is index.html, but this lets us point it to a 
+	     different page -->
+	<content>indexmobile.html</content>
+    
     <!--
         Enable individual API permissions by defining each here.
         The 'device' permission is required for the 'deviceready' event.
@@ -90,6 +94,7 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+	<access origin="http://yourlo.ca" subdomains="true"/>
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://honegap.com/
         <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/

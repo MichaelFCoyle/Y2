@@ -246,8 +246,8 @@
 	
 		maxLength(document.getElementById("RequestMessage"));
 
-		$("#location-container").hide();
-		$("#request-container").show();
+		ShowRequest();
+
 		setCookie();
 		
 		// Markdown
@@ -257,12 +257,13 @@
 		// if it does, process the file as markdown
 		$("a").on("click", clickMarkdownLink);
 
+/*
 		if($.QueryString["md"]){
 			loadMarkDown($.QueryString["md"]); 
 			var id=$.QueryString["md"];
 			id=id.substring(0,id.indexOf('.'));
 			$("#"+id).addClass("active");}
-
+*/
 		//reload();	
 	});	
 	
@@ -270,16 +271,16 @@
 	{
 		$("#location-container").hide();
 		$("#request-container").show();
-		$("#locate").removeClass("active");}
-		$("#request").addClass("active");}
+		$("#locate").removeClass("active");
+		$("#request").addClass("active");
 	}
 	
 	function ShowLocate()
 	{
 		$("#location-container").show();
 		$("#request-container").hide();
-		$("#request").removeClass("active");}
-		$("#locate").addClass("active");}
+		$("#request").removeClass("active");
+		$("#locate").addClass("active");
 		reload();
 	}
 	
@@ -523,8 +524,8 @@
 		});
 	}
 </script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
     </body>
 </html>

@@ -18,7 +18,7 @@
 	
 	<!-- the default page is index.html, but this lets us point it to a 
 	     different page -->
-	<content>indexmobile.html</content>
+	<content>mobile.html</content>
     
     <!--
         Enable individual API permissions by defining each here.

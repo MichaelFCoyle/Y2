@@ -481,24 +481,6 @@
 		window.open(href ,'_blank');
 	}	
 	
-	//===========================================================
-	// Markdown link click
-	//
-	/// get an url paramter this way: $.QueryString["param"]
-	(function($) {
-		$.QueryString = (function(a) {
-			if (a == "") return {};
-			var b = {};
-			for (var i = 0; i < a.length; ++i)
-			{
-				var p=a[i].split('=');
-				if (p.length != 2) continue;
-				b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-			}
-			return b;
-		})(window.location.search.substr(1).split('&'))
-	})(jQuery);
-
 	function getPathFromUrl(url) {
 	  return url.split("?")[0];
 	}
@@ -507,8 +489,11 @@
 	// if it's just a regular link do nothing
 	function clickMarkdownLink(event)
 	{
+		alert(window.location.href);
+		alert(event.currentTarget.href);
 		if (/.md$/.test(event.currentTarget.href)) {
 			var origin=getPathFromUrl(window.location.href);
+			alert(origin);
 			var index=origin.lastIndexOf("/");
 			origin= origin.substr(0, index+1);
 			var filename = event.currentTarget.href.replace(origin,"");

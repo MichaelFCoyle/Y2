@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
+<widget xmlns = "http://www.w3.org/ns/widgets"
 	xmlns:gap = "http://phonegap.com/ns/1.0"
 	id        = "com.bluetoque.yourlo.ca-tion"
 	version   = "2.4.0">
@@ -15,10 +15,6 @@
     <author href="http://yourLo.ca/tion" email="support@yourLo.ca">
         BlueToque Software
     </author>
-	
-	<!-- the default page is index.html, but this lets us point it to a 
-	     different page -->
-	<content>mobile.html</content>
     
     <!--
         Enable individual API permissions by defining each here.

@@ -117,6 +117,19 @@
 				</form>
 			</fieldset>
             <hr>
+			<div id="submitConfirm" class="modal hide fade">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Submitted</h3>
+			  </div>
+			  <div class="modal-body">
+				<p>Your location data has been submitted for testing.</p>
+			  </div>
+			  <div class="modal-footer">
+				<a class="btn" data-dismiss="modal">OK</a>
+			  </div>
+			</div>
+            
 		</div> <!-- class="location-container" -->
 
 		<div id="request-container">
@@ -161,7 +174,7 @@
 			</div>
 			-->
 
-			<div id="myModal" class="modal hide fade">
+			<div id="requestModal" class="modal hide fade">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h3>Location Request URL</h3>
@@ -182,7 +195,7 @@
 			<div class="row">
 				<div class="span4">
 				  <span style="float:left">
-					<a href="contact.md"><img src="img/email.png" alt="Contact Us"/></a> 
+					<a href="http://yourlo.ca/tion/?md=contact.md"><img src="img/email.png" alt="Contact Us"/></a> 
 					<a href="https://twitter.com/yourlo_ca_tion" target="_blank"><img src="img/twitter.png" alt="Twitter"/></a> 
 					<a href="https://www.facebook.com/pages/Yourlocation/480909735304603" target="_blank"><img src="img/facebook.png" alt="Facebook"/></a>
 					<a href="https://plus.google.com/101292851768036671531?rel=author" target="_blank"><img src="img/googleplus.png" alt="Google+"/></a>
@@ -382,7 +395,8 @@
 		//doSubmit();	
 		document.getElementById('theForm').submit();		
 		document.getElementById('success').innerHTML='Submitted'; 		
-		alert("Your location has been submitted");	}			
+		$('#submitConfirm').modal({keyboard: true});
+	}			
 		
 	function convertToUTM(lat, lon)	{		
 		var xy = new Array(2);		
@@ -422,7 +436,7 @@
 			$("#RequestShortURL").val(short_url);
 			// show the value to test the short url
 			$("#RequestTestShortURL").html("<a href='" + short_url + "' target='_blank'>"+short_url+"</a>");
-			$('#myModal').modal({keyboard: true});
+			$('#requestModal').modal({keyboard: true});
 
 			// submit the form
 			$("#RequestForm").submit();
@@ -464,7 +478,6 @@
 			+ $("#RequestShortURL").val()
 		);
 		window.location.href=href;
-		//window.open(href ,'_blank');
 	}
 	
 	function LocalEmailLocation() {		
@@ -480,7 +493,7 @@
 			+"\n\n"
 			+$("#RequestShortURL").val()
 			+"\n\n");	
-		window.open(href ,'_blank');
+		window.location.href=href;
 	}	
 	
 	function getPathFromUrl(url) {
@@ -491,11 +504,8 @@
 	// if it's just a regular link do nothing
 	function clickMarkdownLink(event)
 	{
-		alert(window.location.href);
-		alert(event.currentTarget.href);
 		if (/.md$/.test(event.currentTarget.href)) {
 			var origin=getPathFromUrl(window.location.href);
-			alert(origin);
 			var index=origin.lastIndexOf("/");
 			origin= origin.substr(0, index+1);
 			var filename = event.currentTarget.href.replace(origin,"");

@@ -68,11 +68,9 @@
                 </div>
             </div>
         </div>
-
-		<div id="markdownContainer" class="container">
-		</div>
 		
         <div id="formContainer" class="container">
+
 		<div id="location-container">
 			<div id="location">	
 				<div class="alert" id="statusMessage">Loading...</div>	
@@ -133,10 +131,17 @@
 		</div> <!-- class="location-container" -->
 
 		<div id="request-container">
-			Filling in this form will generate a link that you can send to someone via email, text or social media.
+			<a data-toggle="collapse" data-target="#docs_expand">
+			<span class="label label-info">Using</span></a>
+<!-- <h4>How does this work?</h4> -->
+			<div id="docs_expand" class="collapse">
+			<div class="well">
+				Filling in this form will generate a link that you can send to someone via email, text or social media.
 			 
-			When they click on the link the page will attempt to find their location, and email it to the address you enter here.
-
+				When they click on the link the page will attempt to find their location, and email it to the address you enter here.
+			</div>
+			</div>
+			
 			<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 			<form 
 				class="form-horizontal"
@@ -219,13 +224,7 @@
 		
         </div> <!-- /container -->
 
-        <!--
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        -->
-
         <script src="js/vendor/bootstrap.min.js"></script>
-
         <script src="js/main.js"></script>
 <!--
         <script>
@@ -237,7 +236,7 @@
 -->
 <script type="text/javascript" src="js/geog.js"></script>
 <script type="text/javascript" src="js/location.js"></script>
-<script src="js/vendor/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/vendor/jquery.cookie.js"></script>
 <script>
 	$(document).ready(function () {		
 		$('#emailLink').click(function(){ EmailPosition(); return false; });		

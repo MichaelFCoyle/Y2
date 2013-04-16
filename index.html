@@ -133,7 +133,7 @@
 		<div id="request-container">
 			<a data-toggle="collapse" data-target="#docs_expand">
 			<span class="label label-info">Using</span></a>
-<!-- <h4>How does this work?</h4> -->
+
 			<div id="docs_expand" class="collapse">
 			<div class="well">
 				Filling in this form will generate a link that you can send to someone via email, text or social media.
@@ -306,10 +306,18 @@
 		{
 			if(!$.cookie('userID'))
 			{
-				var g=guid();
+				var g = guid();
 				$.cookie('userID', g, { expires: 365, path: '/' });	
 			}
+
 			$('#ID').val($.cookie('userID'));
+			
+			if($.cookie('RequestName'))
+				$("#RequestName").val($.cookie('RequestName'));
+			if($.cookie('RequestEmail'))
+				$("#RequestEmail").val($.cookie('RequestEmail'));
+			if($.cookie('RequestMessage'))
+				$("#RequestMessage").val($.cookie('RequestMessage'));
 		}
 		catch(error)
 		{
@@ -421,6 +429,11 @@
 		var login    = "o_2rnet2c4";
 		var api_key  = "R_e1eabf324c48983d594bcb6792315343";
 		var root_url = "http://find.yourlo.ca/tion/";
+
+		// save the cookie
+		$.cookie('RequestName', $("#RequestName"), { expires: 365, path: '/' });	
+		$.cookie('RequestEmail', $("#RequestEmail"), { expires: 365, path: '/' });	
+		$.cookie('RequestMessage', $("#RequestMessage"), { expires: 365, path: '/' });	
 
 		// make the url
 		var long_url = root_url

@@ -161,6 +161,7 @@
 					<textarea name="Message" maxlength="260" id="RequestMessage" rows="4" cols="50" placeholder="max 260 characters"></textarea>
 				</div>
 			  </div>	
+			  <input type="hidden" name="ID" id="UserID" placeholder="unique tag for this request" maxlength="16"/></div>
 			  <input type="hidden" name="ShortURL" id="RequestShortURL"/>
 			  <input type="hidden" name="Agent" id="RequestAgent"/>
 			  <input type="hidden" name="IPAddress" id="RequestIPAddress"/>
@@ -431,9 +432,9 @@
 		var root_url = "http://find.yourlo.ca/tion/";
 
 		// save the cookie
-		$.cookie('RequestName', $("#RequestName"), { expires: 365, path: '/' });	
-		$.cookie('RequestEmail', $("#RequestEmail"), { expires: 365, path: '/' });	
-		$.cookie('RequestMessage', $("#RequestMessage"), { expires: 365, path: '/' });	
+		$.cookie('RequestName', $("#RequestName").val(), { expires: 365, path: '/' });	
+		$.cookie('RequestEmail', $("#RequestEmail").val(), { expires: 365, path: '/' });	
+		$.cookie('RequestMessage', $("#RequestMessage").val(), { expires: 365, path: '/' });	
 
 		// make the url
 		var long_url = root_url
